@@ -7,6 +7,6 @@ int	ft_print_uint(unsigned int n)
 	i = 0;
 	if (n >= 10)
 		i += ft_print_uint(n / 10);
-	i += ft_print_char(n % 10 +'0');
+	i += ft_print_char(n % 10 + '0');
 	return (i);
 }
