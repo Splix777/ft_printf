@@ -1,6 +1,4 @@
 #include "ft_printf.h"
-#include <stdio.h>
-#include <limits.h>
 
 static int	ft_case(const char *input, va_list ap)
 {
@@ -47,10 +45,3 @@ int	ft_printf(const char *input, ...)
 	va_end(ap);
 	return (i);
 }
-/*
-int	main(void)
-{
-	ft_printf("%s", NULL);
-	printf("%s", NULL);
-	return (0);
-}*/
