@@ -2,9 +2,9 @@
 
 int	ft_print_ptr(void *ptr)
 {
-	int		count;
-	char	*str;
-	char 	*hex;
+	int				count;
+	unsigned long	str;
+	char 			*hex;
 
 	hex = "0123456789abcdef";
 	count = 0;
@@ -16,6 +16,6 @@ int	ft_print_ptr(void *ptr)
 		return (ft_print_char('0'));
 	if (str >= 16)
 		count += ft_print_ptr(str / 16);
-	count += ft_putchar(hex[str % 16]);
+	count += ft_print_char(hex[str % 16]);
 	return (count);
 }
