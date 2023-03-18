@@ -12,7 +12,9 @@ SRCS = 	ft_printf.c	\
 	ft_print_str.c	\
 	ft_print_uint.c
 
-OBJS = $(SRCS:.c=.o)
+OBJDIR = objs
+
+OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
 all: $(NAME)
 
@@ -24,7 +26,8 @@ makelibft:
 $(NAME): makelibft $(OBJS)
 	@ar -r $(NAME) $(OBJS)
 
-%.o: %.c
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
