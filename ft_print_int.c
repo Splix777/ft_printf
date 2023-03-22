@@ -5,7 +5,7 @@ int	ft_print_int(int n)
 	int	i;
 
 	i = 0;
-	if (n = -2147483648)
+	if (n == -2147483648)
 	{
 		write(1, &"-2147483648", 11);
 		return (11);
