@@ -23,24 +23,24 @@ int	main(void)
 	ft_printf("%%\n\n", 0);
 
 
-	printf("%s\n", "Testing -1");
-	printf("%c\n", '-1');
-	printf("%s\n", "-1");
-	printf("%p\n", -1);
-	printf("%d\n", -1);
-	printf("%u\n", -1);
-	printf("%x\n", -1);
-	printf("%X\n", -1);
-	printf("%%\n\n", -1);
+	printf("%s\n", "Testing -2147483648");
+	printf("%c\n", '-2147483648');
+	printf("%s\n", "-2147483648");
+	printf("%p\n", -2147483648);
+	printf("%d\n", -2147483648);
+	printf("%u\n", -2147483648);
+	printf("%x\n", -2147483648);
+	printf("%X\n", -2147483648);
+	printf("%%\n\n", -2147483648);
 
-	ft_printf("%c\n", '-1');
-	ft_printf("%s\n", "-1");
-	ft_printf("%p\n", -1);
-	ft_printf("%d\n", -1);
-	ft_printf("%u\n", -1);
-	ft_printf("%x\n", -1);
-	ft_printf("%X\n", -1);
-	ft_printf("%%\n\n", -1);
+	ft_printf("%c\n", '-2147483648');
+	ft_printf("%s\n", "-2147483648");
+	ft_printf("%p\n", -2147483648);
+	ft_printf("%d\n", -2147483648);
+	ft_printf("%u\n", -2147483648);
+	ft_printf("%x\n", -2147483648);
+	ft_printf("%X\n", -2147483648);
+	ft_printf("%%\n\n", -2147483648);
 
 	printf("%s\n", "Testing 1000");
 	printf("%c\n", "1000");
