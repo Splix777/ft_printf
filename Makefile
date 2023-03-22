@@ -1,8 +1,6 @@
-NAME = libftprintf.a
-LIBFTNAME = libft.a
-CC = gcc
+NAME = ftprintf.a
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
-LIBFTDIR = ./libft
 
 SRCS = 	ft_printf.c	\
 	ft_print_char.c	\
@@ -12,31 +10,26 @@ SRCS = 	ft_printf.c	\
 	ft_print_str.c	\
 	ft_print_uint.c
 
-OBJDIR = objs
+OBJDIR = objs/
+OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
 
-OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+$(OBJDIR)%.o: %.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 all: $(NAME)
-
-makelibft:
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
-
-$(NAME): makelibft $(OBJS)
-	@ar -r $(NAME) $(OBJS)
-
-$(OBJDIR)/%.o: %.c
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "ft_printf.a compiled succesfully"
 
 clean:
-	@rm -f $(OBJS)
-	@cd $(LIBFTDIR) && make clean
-	
+	@rm -rf $(OBJDIR)
+
 fclean: clean
 	@rm -f $(NAME)
-	@cd $(LIBFTDIR) && make fclean
-	
-re: fclean all
 
+re: all
+
+.PHONY: all clean fclean re
