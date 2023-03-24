@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsalazar <fsalazar@student.42madrid.com:>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/24 12:59:50 by fsalazar          #+#    #+#             */
+/*   Updated: 2023/03/24 13:01:50 by fsalazar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	ft_case(const char *input, va_list ap)
@@ -27,7 +39,7 @@ static int	ft_case(const char *input, va_list ap)
 int	ft_printf(const char *input, ...)
 {
 	va_list	ap;
-	int	i;
+	int		i;
 
 	i = 0;
 	va_start(ap, input);
