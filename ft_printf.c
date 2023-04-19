@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	ft_case(const char *input, va_list ap)
 {
@@ -56,4 +57,44 @@ int	ft_printf(const char *input, ...)
 	}
 	va_end(ap);
 	return (i);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		ft_printf(argv[1], argv[2]);
+		ft_printf("\n");
+	}
+	else
+	{
+		char			c;
+		char			*test;
+		int				i;
+		unsigned int	ui;
+		unsigned int	hex;
+
+		c = 'c';
+		test = "Hello World!";
+		i = 2654;
+		ui = 10;
+		hex = 30;
+
+		printf("\n\nThis is what printf prints:\n\n");
+		ft_printf("ft_printf CHAR prints: %c\n", c);
+		printf("Printf prints: %c\n", c);
+		ft_printf("ft_printf STRING prints: %s\n", test);
+		printf("Printf prints: %s\n", test);
+		ft_printf("ft_printf POINTER prints: %p\n", test);
+		printf("Printf prints: %p\n", test);
+		ft_printf("ft_printf INTEGER prints: %d  :  %i\n", i, -i);
+		printf("Printf prints: %d  :  %i\n", i, -i);
+		ft_printf("ft_printf UNSIGNED INT prints: %u\n", ui);
+		printf("Printf prints: %u\n", ui);
+		ft_printf("ft_printf HEXADECIMAL prints: %x : %X\n", hex, hex);
+		printf("Printf prints: %x  :  %X\n", hex, hex);
+		ft_printf("ft_printf JUST %% prints: %%\n");
+		printf("Printf prints: %%\n");	
+	}
+	return (0);
 }
