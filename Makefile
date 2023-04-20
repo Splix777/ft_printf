@@ -11,10 +11,8 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
 
-SRCS = 	ft_printf.c	\
+SRC = ft_printf.c	\
 	ft_print_char.c	\
 	ft_print_hex.c	\
 	ft_print_int.c	\
@@ -22,26 +20,29 @@ SRCS = 	ft_printf.c	\
 	ft_print_str.c	\
 	ft_print_uint.c
 
-OBJDIR = objs/
-OBJS = $(addprefix $(OBJDIR), $(SRCS:.c=.o))
+OBJ = $(SRC:.c=.o)
 
-$(OBJDIR)%.o: %.c
-	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
-	@echo "ft_printf.a compiled succesfully"
+
+$(NAME): $(OBJ)
+	@echo "Creating $(NAME)..."
+	@ar rcs $(NAME) $(OBJ)
+
+%.o: %.c library.h
+	@echo "Compiling $<..."
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJDIR)
+	@echo "Cleaning up..."
+	@rm -f $(OBJ)
 
 fclean: clean
+	@echo "Removing $(NAME)..."
 	@rm -f $(NAME)
 
-re: all
+re: fclean all
 
 .PHONY: all clean fclean re

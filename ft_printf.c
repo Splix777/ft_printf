@@ -73,14 +73,15 @@ int	main(int argc, char **argv)
 		int				i;
 		unsigned int	ui;
 		unsigned int	hex;
+		int				print_count;
 
 		c = 'c';
 		test = "Hello World!";
-		i = 2654;
+		i = 2651;
 		ui = 10;
 		hex = 30;
 
-		printf("\n\nThis is what printf prints:\n\n");
+		print_count = printf("\n\nThis is what printf prints:\n\n");
 		ft_printf("ft_printf CHAR prints: %c\n", c);
 		printf("Printf prints: %c\n", c);
 		ft_printf("ft_printf STRING prints: %s\n", test);
@@ -94,7 +95,9 @@ int	main(int argc, char **argv)
 		ft_printf("ft_printf HEXADECIMAL prints: %x : %X\n", hex, hex);
 		printf("Printf prints: %x  :  %X\n", hex, hex);
 		ft_printf("ft_printf JUST %% prints: %%\n");
-		printf("Printf prints: %%\n");	
+		printf("Printf prints: %%\n");
+		ft_printf("ft_printf PRINTF_INT prints: %d\n", print_count);
+		printf("Printf prints: %d\n", print_count);	
 	}
 	return (0);
 }
